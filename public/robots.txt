@@ -1,0 +1,6 @@
+# robots.txt for leeflannery.com
+
+User-agent: *
+Allow: /
+
+Sitemap: https://leeflannery.com/sitemap-index.xml 
