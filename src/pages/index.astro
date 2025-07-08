@@ -1,16 +1,44 @@
 ---
-
+import Layout from "../components/Layout.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Lee Flannery - Solutions Architect & React Specialist">
+  <main>
+    <Hero />
+
+    <!-- Portfolio Section Placeholder -->
+    <section id="portfolio" class="py-24 px-8 max-w-6xl mx-auto">
+      <div class="text-center">
+        <div class="font-mono text-sm text-blue-400 mb-2">
+          <span class="text-green-400">➜</span> ls -la projects/ | grep featured
+        </div>
+        <h2
+          class="font-mono text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent"
+        >
+          Recent Work
+        </h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-16">
+          Portfolio section coming next...
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section Placeholder -->
+    <section id="contact" class="py-24 px-8 max-w-6xl mx-auto">
+      <div class="text-center">
+        <div class="font-mono text-sm text-blue-400 mb-2">
+          <span class="text-green-400">➜</span> initiate contact_protocol --mode=collaboration
+        </div>
+        <h2
+          class="font-mono text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent"
+        >
+          Let's Build Something
+        </h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-16">
+          Contact section coming next...
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>
