@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import type { JSX } from 'react';
 
 interface SocialLink {
   name: string;
@@ -45,13 +46,13 @@ const socialLinks: SocialLink[] = [
   }
 ];
 
-export default function SocialLinks() {
+export default function SocialLinks(): JSX.Element {
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
+  useEffect((): (() => void) => {
     // Delay visibility for stagger effect
-    const timer = setTimeout(() => setIsVisible(true), 2000);
-    return () => clearTimeout(timer);
+    const timer: number = window.setTimeout(() => setIsVisible(true), 2000);
+    return (): void => window.clearTimeout(timer);
   }, []);
 
   return (
