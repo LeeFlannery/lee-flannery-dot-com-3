@@ -1,0 +1,184 @@
+---
+import SocialLinks from './react/SocialLinks.tsx';
+---
+
+<section class="min-h-screen flex flex-col justify-center items-center relative px-4 py-8">
+  <!-- Terminal Window -->
+  <div class="w-full max-w-4xl bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-xl overflow-hidden shadow-2xl shadow-green-400/10">
+    <!-- Terminal Header -->
+    <div class="bg-zinc-800 px-6 py-4 flex items-center gap-3 border-b border-zinc-700">
+      <div class="flex gap-2">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+      </div>
+      <div class="ml-4 font-mono text-sm text-slate-400">
+        lee@solutions-architect ~ zsh
+      </div>
+    </div>
+    
+    <!-- Terminal Content -->
+    <div class="p-8 pl-12 font-mono text-sm leading-relaxed">
+      <div class="terminal-line opacity-0 -translate-x-8">
+        <span class="text-green-400">➜</span>
+        <span class="text-blue-400 ml-2">whoami</span>
+      </div>
+      <div class="terminal-line opacity-0 -translate-x-8 mt-2 text-slate-200">
+        <span class="text-green-400 font-semibold">Lee Flannery</span> - Solutions Architect & React Specialist
+      </div>
+      
+      <div class="terminal-line opacity-0 -translate-x-8 mt-6">
+        <span class="text-green-400">➜</span>
+        <span class="text-blue-400 ml-2">cat experience.json</span>
+      </div>
+      <div class="terminal-line opacity-0 -translate-x-8 mt-2 text-slate-200">
+        {'{'}<br>
+        &nbsp;&nbsp;"role": "<span class="text-green-400">Solutions Architect</span>",<br>
+        &nbsp;&nbsp;"expertise": ["React", "TypeScript", "Enterprise Architecture"],<br>
+        &nbsp;&nbsp;"clients": ["Fortune 500", "Startups", "Enterprise Teams"],<br>
+        &nbsp;&nbsp;"specialties": ["Demo Environments", "Team Training", "Technical Sales"]<br>
+        {'}'}
+      </div>
+      
+      <div class="terminal-line opacity-0 -translate-x-8 mt-6">
+        <span class="text-green-400">➜</span>
+        <span class="text-blue-400 ml-2">ls recent_projects/</span>
+      </div>
+      <div class="terminal-line opacity-0 -translate-x-8 mt-2 text-slate-200">
+        <span class="text-blue-400">analytics-dashboard/</span>&nbsp;&nbsp;
+        <span class="text-green-400">quantum-weekend-prep/</span>&nbsp;&nbsp;
+        <span class="text-pink-400">release-mode-llc/</span>
+      </div>
+      
+      <div class="terminal-line opacity-0 -translate-x-8 mt-6">
+        <span class="text-green-400">➜</span>
+        <span class="text-blue-400 ml-2">echo $AVAILABILITY</span>
+      </div>
+      <div class="terminal-line opacity-0 -translate-x-8 mt-2 text-slate-200">
+        Open for <span class="text-green-400">freelance</span>, <span class="text-green-400">consulting</span>, and <span class="text-green-400">collaboration</span>
+      </div>
+      
+      <div class="terminal-line opacity-0 -translate-x-8 mt-6">
+        <span class="text-green-400">➜</span>
+        <span class="cursor-blink">|</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hero Content -->
+  <div class="text-center mt-12 max-w-4xl hero-content opacity-0 translate-y-8">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-mono">
+      Building Enterprise React Solutions
+    </h1>
+    <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
+      I architect scalable applications and train development teams for companies that need things to actually work at scale.
+    </p>
+    
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#portfolio" 
+         class="bg-gradient-to-r from-green-400 to-blue-400 text-zinc-950 px-8 py-4 rounded-lg font-mono font-semibold hover:shadow-lg hover:shadow-green-400/25 hover:-translate-y-1 transition-all duration-300">
+        View Recent Work
+      </a>
+      <a href="#contact" 
+         class="border border-green-400 text-green-400 px-8 py-4 rounded-lg font-mono font-semibold hover:shadow-lg hover:shadow-green-400/25 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+        <span class="relative z-10">Let's Collaborate</span>
+        <div class="absolute inset-0 bg-green-400/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+      </a>
+      <a href="https://fullstackdrip.com" 
+         class="border border-blue-400 text-blue-400 px-8 py-4 rounded-lg font-mono font-semibold hover:shadow-lg hover:shadow-blue-400/25 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+        <span class="relative z-10">@fullstackdrip</span>
+        <div class="absolute inset-0 bg-blue-400/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Social Links -->
+  <SocialLinks client:load />
+</section>
+
+<style>
+  .terminal-line {
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+  
+  .hero-content {
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .cursor-blink {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+</style>
+
+<script>
+  // Terminal animation
+  document.addEventListener('DOMContentLoaded', () => {
+    // Simple fallback animation if GSAP is not available
+    const animateElements = () => {
+      const terminalLines = document.querySelectorAll('.terminal-line');
+      const heroContent = document.querySelector('.hero-content');
+      
+      console.log(`Found ${terminalLines.length} terminal lines to animate`);
+      
+      // Animate terminal lines with more dramatic slide-in
+      terminalLines.forEach((line: Element, i: number) => {
+        setTimeout(() => {
+          const element = line as HTMLElement;
+          console.log(`Animating terminal line ${i + 1}`);
+          element.style.opacity = '1';
+          element.style.transform = 'translateX(0)';
+        }, 800 + (i * 400)); // Longer delay for more dramatic effect
+      });
+      
+      // Animate hero content
+      setTimeout(() => {
+        if (heroContent) {
+          console.log('Animating hero content');
+          (heroContent as HTMLElement).style.opacity = '1';
+          (heroContent as HTMLElement).style.transform = 'translateY(0)';
+        }
+      }, 3000); // Wait for terminal lines to finish
+    };
+    
+    // Try GSAP first, fallback to CSS animations
+    console.log('Starting animation sequence...');
+    if (typeof (window as any).gsap !== 'undefined') {
+      try {
+        console.log('GSAP found, using GSAP animations');
+        const gsap = (window as any).gsap;
+        gsap.registerPlugin((window as any).ScrollTrigger);
+        
+        // Animate terminal lines
+        const tl = gsap.timeline({ delay: 0.5 });
+        
+        gsap.utils.toArray('.terminal-line').forEach((line: any, i: number) => {
+          tl.to(line, {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            ease: "power2.out"
+          }, i * 0.3);
+        });
+        
+        // Hero content animation
+        tl.to('.hero-content', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.3");
+      } catch (error) {
+        console.log('GSAP animation failed, using fallback:', error);
+        animateElements();
+      }
+    } else {
+      console.log('GSAP not found, using fallback animations');
+      animateElements();
+    }
+  });
+</script>
